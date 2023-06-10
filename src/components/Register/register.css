@@ -1,0 +1,55 @@
+.register {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  padding: 24px;
+}
+
+.register .title-register {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.register .form-register {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register .form-register .input-form {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #fdfdfd;
+}
+
+.register .form-register #file-input {
+  display: none;
+}
+.register .form-register .label-file-input {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.register .form-register .info-file {
+  font-size: 0.85rem;
+}
+
+.register .form-register .btn-register {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--btn-primary);
+}
+
+.register .form-register .btn-register:hover {
+  filter: contrast(1.2);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,52 @@
+.search {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 100px;
+}
+.search .input-search::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-image: url(../../../assets/icons/icon-search.svg);
+  background-size: contain;
+  color: green;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: -4px;
+}
+.search .input-search {
+  padding: 6px 8px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fdfdfd;
+}
+.search input {
+  width: 70%;
+  font-size: 1rem;
+}
+
+.search .card-result {
+  cursor: pointer;
+  padding: 10px 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  transition: all 0.3s linear;
+}
+.search .card-result:hover {
+  background-color: #eee9e9;
+}
+
+.search .card-result .img-profile {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+.search .card-result .username {
+  font-weight: 500;
+  font-size: 0.9rem;
+}

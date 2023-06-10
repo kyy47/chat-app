@@ -1,0 +1,13 @@
+.top-bar-chat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-bar-chat .img-user {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
