@@ -11,3 +11,8 @@
   object-position: center;
   border-radius: 50%;
 }
+.top-bar-chat .back{  
+}
+.top-bar-chat .back .back-icon{
+  color: #2dd4bf;
+}

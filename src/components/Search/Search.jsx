@@ -10,14 +10,18 @@ import {
   updateDoc,
   serverTimestamp,
 } from "firebase/firestore";
-import { db } from "../../../firebase/firebase";
-import { AuthContext } from "../../../context/AuthContext";
+import { db } from "../../firebase/firebase";
+import { AuthContext } from "../../context/AuthContext";
 import "./search.css";
+import iconSearch from "../../assets/icons/icon-search.svg";
+import { ChatContext } from "../../context/ChatContext";
+import { useNavigate } from "react-router-dom";
 const Search = () => {
+  const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
   const [keyword, setKeyword] = useState("");
   const [user, setUser] = useState(null);
-
+  const { dispath } = useContext(ChatContext);
   const handleSearch = async (e) => {
     const username = e.target.value;
     setKeyword(username);
@@ -58,6 +62,8 @@ const Search = () => {
           [combinedId + ".date"]: serverTimestamp(),
         });
       }
+      dispath({ type: "CHANGE_USER", payload: user });
+      navigate("/chat");
     } catch (error) {
       console.log(error.message);
     }
@@ -65,6 +71,7 @@ const Search = () => {
   return (
     <div className="search">
       <div className="input-search">
+        <img src={iconSearch} alt="icon-search" className="icon-search" />
         <input
           type="text"
           placeholder="search other user"

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./chat-user.css";
-import { ChatContext } from "../../../context/ChatContext";
-import { AuthContext } from "../../../context/AuthContext";
+import { ChatContext } from "../../context/ChatContext"; 
+import { AuthContext } from "../../context/AuthContext";
 import { doc, onSnapshot } from "firebase/firestore";
-import { db } from "../../../firebase/firebase";
+import { db } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 const ChatsUser = () => {
   const { currentUser } = useContext(AuthContext);

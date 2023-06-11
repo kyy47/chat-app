@@ -1,0 +1,49 @@
+.chats-user {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .chats-user .heading {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .chats-user .chats .card-chats {
+    display: flex;
+    padding: 10px 5px;
+    gap: 10px;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+  }
+  
+  .chats-user .chats .card-chats:hover {
+    background-color: #eee9e9;
+  }
+  
+  .chats-user .chats .card-chats .img-profile {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .chats-user .chats .card-chats .detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .chats-user .chats .card-chats .detail .username {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .chats-user .chats .card-chats .detail .last-chat {
+    font-size: 0.8rem;
+    overflow: hidden;
+    max-width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 400;
+  }

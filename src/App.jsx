@@ -1,12 +1,9 @@
-import Register from "./components/Register/Register";
 import "./app.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./components/Home/Home";
 import AuthContextProvider from "./context/AuthContext";
-import Login from "./components/Login/Login";
+import { Login, Register, Chat, Home } from "../src/pages";
 import ProtectedRoute from "./protected/ProtectedRoute";
 import ChatContextProvider from "./context/ChatContext";
-import Chat from "./components/Chat/Chat";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +24,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/chat",
-    element: <Chat />,
+    element: (
+      <ProtectedRoute>
+        <Chat />,
+      </ProtectedRoute>
+    ),
   },
 ]);
 function App() {
