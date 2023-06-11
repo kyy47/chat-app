@@ -17,7 +17,7 @@ const Chat = () => {
   const { currentUser } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
   const [chatInput, setChatInput] = useState("");
-  const { data, dispath } = useContext(ChatContext);
+  const { data } = useContext(ChatContext);
 
   useEffect(() => {
     const getChats = () => {
@@ -53,7 +53,7 @@ const Chat = () => {
       },
       [data.chatId + ".date"]: serverTimestamp(),
     });
-    setChatInput("")
+    setChatInput("");
   };
   return (
     <div className="container">
@@ -65,10 +65,22 @@ const Chat = () => {
                 return (
                   <div
                     className={
-                      message.senderId === currentUser.uid ? "send" : "receive"
+                      "message " +
+                      (message.senderId === currentUser.uid
+                        ? "send"
+                        : "receive")
                     }
                     key={message.id}
                   >
+                    <img
+                      src={
+                        message.senderId === currentUser.uid
+                          ? currentUser.photoURL
+                          : data.user.avatar
+                      }
+                      alt="avatar"
+                      className="avatar-message"
+                    />
                     <p>{message.text}</p>
                   </div>
                 );

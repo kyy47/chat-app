@@ -15,24 +15,33 @@
   flex-direction: column;
   gap: 1rem;
 }
-.messages .send {
+.messages .message{
   display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.messages .message .avatar-message{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.messages .message p{
+  font-size: .85rem;
+  border-radius: 25px;
+  padding: 5px 12px;
+}
+.messages .send {
   justify-content: end;
+  flex-direction: row-reverse;
 }
 .messages .send p {
-  font-size: .85rem;
-  border-radius: 5px;
-  padding: 6px 20px;
   background-color: var(--btn-primary);
 }
 .messages .receive {
-  display: flex;
   justify-content: start;
 }
 .messages .receive p {
-  font-size: .85rem;
-  border-radius: 5px;
-  padding: 6px 20px;
   background-color: #0ea5e9;
 }
 
