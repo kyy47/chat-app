@@ -1,4 +1,4 @@
-.register {
+.login {
   width: 100%;
   min-height: 400px;
   display: flex;
@@ -7,21 +7,22 @@
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   padding: 24px;
+
 }
 
-.register .title-register {
+.login .title-login {
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-.register .form-register {
+.login .form-login {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.register .form-register .input-form {
+.login .form-login .input-form {
   padding: 10px 20px;
   font-size: 0.9rem;
   border-radius: 5px;
@@ -29,27 +30,42 @@
   background-color: #fdfdfd;
 }
 
-.register .form-register #file-input {
+.login .form-login #file-input {
   display: none;
 }
-.register .form-register .label-file-input {
+.login .form-login .label-file-input {
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.register .form-register .info-file {
+.login .form-login .info-file {
   font-size: 0.85rem;
 }
 
-.register .form-register .btn-register {
-  padding: 10px 20px;
+.login .form-login .btn-login {
+  padding: 7px 20px;
   border-radius: 5px;
   cursor: pointer;
   background-color: var(--btn-primary);
+  font-size: 1.1rem;
 }
 
-.register .form-register .btn-register:hover {
+.login .form-login .btn-login:hover {
   filter: contrast(1.2);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.login .to-register{
+  margin-top: 1rem;
+  font-size: .75em;
+  text-align: center;
+  color: var(--color-gray);
+}
+.login .to-register a{
+  font-weight: 500;
+  color: var(--color-green);
+}
+.login .to-register a:hover{
+    opacity: .8
 }

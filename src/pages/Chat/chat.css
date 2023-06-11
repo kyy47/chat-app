@@ -20,6 +20,7 @@
   justify-content: end;
 }
 .messages .send p {
+  font-size: .85rem;
   border-radius: 5px;
   padding: 6px 20px;
   background-color: var(--btn-primary);
@@ -29,9 +30,10 @@
   justify-content: start;
 }
 .messages .receive p {
+  font-size: .85rem;
   border-radius: 5px;
   padding: 6px 20px;
-  background-color: #22d3ee;
+  background-color: #0ea5e9;
 }
 
 .chat .form {

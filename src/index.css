@@ -12,8 +12,10 @@ body {
 }
 :root {
   --bg-img-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  color-white: #fefefe;
+  --color-white: #fefefe;
+  --color-gray: #5d6c80;
   --btn-primary: #2dd4bf;
+  --color-green: #14b8a6;
 }
 body {
   font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
@@ -25,7 +27,3 @@ body {
   max-height: 600px;
 }
 
-.error {
-  font-size: 0.75rem;
-  color: red;
-}

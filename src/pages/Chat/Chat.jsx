@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./chat.css";
-import TopBarChat from "./TopBarChat/TopBarChat";
+import { TopBarChat } from "../../components";
 import {
   Timestamp,
   arrayUnion,
@@ -53,6 +53,7 @@ const Chat = () => {
       },
       [data.chatId + ".date"]: serverTimestamp(),
     });
+    setChatInput("")
   };
   return (
     <div className="container">

@@ -19,6 +19,9 @@ const Login = () => {
       setError(error.message);
     }
   };
+  useEffect(() => {
+    if (currentUser) navigate("/");
+  }, [currentUser]);
   return (
     <div className="container">
       <div className="login">
@@ -40,11 +43,14 @@ const Login = () => {
             value={password}
             onChange={({ target }) => setPassword(target.value)}
           />
-          {error ? <p className="error">{error}</p> : null}
+          {error ? <Error message={error} /> : null}
           <button type="submit" className="btn-login">
             login
           </button>
         </form>
+        <span className="to-register">
+          Don't you have an account? <a href="/register">register</a>
+        </span>
       </div>
     </div>
   );

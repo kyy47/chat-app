@@ -1,8 +1,8 @@
 import "./top-bar-home.css";
-import { AuthContext } from "./../../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { signOut } from "firebase/auth";
-import { auth } from "../../../firebase/firebase";
+import { auth } from "../../firebase/firebase";
 const TopBarHome = () => {
   const { currentUser } = useContext(AuthContext);
   const handleSignOut = async () => {

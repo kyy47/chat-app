@@ -1,8 +1,9 @@
 import React from "react";
 import "./home.css";
-import TopBarHome from "./TopBarHome/TopBarHome";
-import Search from "./Search/Search";
-import ChatsUser from "./ChatsUser/ChatsUser";
+
+
+
+import { Search, TopBarHome, ChatsUser } from "../../components";
 const Home = () => {
   return (
     <div className="container">
