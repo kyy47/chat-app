@@ -1,0 +1,37 @@
+.message .box-img .avatar-message {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.message p {
+  font-size: 0.85rem;
+  border-radius: 25px;
+  padding: 5px 12px;
+  max-width: 80%;
+}
+.message {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.message .box-img {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: end;
+  padding-bottom: 5px;
+}
+.message.send {
+  justify-content: end;
+  flex-direction: row-reverse;
+}
+.message.send p {
+  background-color: var(--btn-primary);
+}
+.message.receive {
+  justify-content: start;
+}
+.message.receive p {
+  background-color: #0ea5e9;
+}

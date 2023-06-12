@@ -1,24 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./chat.css";
-import { TopBarChat } from "../../components";
-import {
-  Timestamp,
-  arrayUnion,
-  doc,
-  onSnapshot,
-  serverTimestamp,
-  updateDoc,
-} from "firebase/firestore";
+import { Message, TopBarChat, WriteChat } from "../../components";
+import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
-import { AuthContext } from "../../context/AuthContext";
 import { ChatContext } from "../../context/ChatContext";
-import { v4 as uuid } from "uuid";
+
 const Chat = () => {
-  const { currentUser } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
   const [chatInput, setChatInput] = useState("");
   const { data } = useContext(ChatContext);
-
+  const scrollRef = useRef();
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
@@ -30,71 +21,37 @@ const Chat = () => {
     };
     data.chatId && getChats();
   }, [data.chatId]);
-  const handleSend = async (e) => {
-    e.preventDefault();
-    await updateDoc(doc(db, "chats", data.chatId), {
-      messages: arrayUnion({
-        id: uuid(),
-        text: chatInput,
-        senderId: currentUser.uid,
-        date: Timestamp.now(),
-      }),
-    });
 
-    await updateDoc(doc(db, "userChats", currentUser.uid), {
-      [data.chatId + ".lastMessage"]: {
-        text: chatInput,
-      },
-      [data.chatId + ".date"]: serverTimestamp(),
-    });
-    await updateDoc(doc(db, "userChats", data.user.id), {
-      [data.chatId + ".lastMessage"]: {
-        text: chatInput,
-      },
-      [data.chatId + ".date"]: serverTimestamp(),
-    });
-    setChatInput("");
-  };
+  useEffect(() => {
+    const scrollToLastMessage = () => {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+    };
+    scrollRef.current && scrollToLastMessage();
+  }, [messages]);
+
   return (
     <div className="container">
       <div className="chat">
         <TopBarChat />
-        <div className="messages">
+        <div className="messages" ref={scrollRef}>
           {messages.length
             ? messages.map((message) => {
                 return (
-                  <div
-                    className={
-                      "message " +
-                      (message.senderId === currentUser.uid
-                        ? "send"
-                        : "receive")
-                    }
+                  <Message
+                    message={message}
+                    data={data}
+                    scrollRef={scrollRef}
                     key={message.id}
-                  >
-                    <img
-                      src={
-                        message.senderId === currentUser.uid
-                          ? currentUser.photoURL
-                          : data.user.avatar
-                      }
-                      alt="avatar"
-                      className="avatar-message"
-                    />
-                    <p>{message.text}</p>
-                  </div>
+                  />
                 );
               })
             : null}
         </div>
-        <form className="form" onSubmit={handleSend}>
-          <input
-            type="text"
-            value={chatInput}
-            onChange={(e) => setChatInput(e.target.value)}
-          />
-          <button type="submit">Kirim</button>
-        </form>
+        <WriteChat
+          chatInput={chatInput}
+          setChatInput={setChatInput}
+          data={data}
+        />
       </div>
     </div>
   );

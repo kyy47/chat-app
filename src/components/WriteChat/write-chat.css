@@ -1,0 +1,24 @@
+.chat .form {
+  margin-top: 1rem;
+}
+.chat .form .write-send {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.chat .form .write-send input {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f2f2;
+  flex: 2;
+}
+.chat .form .write-send button {
+  cursor: pointer;
+  flex: 1;
+  padding: 8px 15px;
+  background-color: var(--btn-primary);
+}

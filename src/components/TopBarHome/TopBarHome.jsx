@@ -6,7 +6,11 @@ import { auth } from "../../firebase/firebase";
 const TopBarHome = () => {
   const { currentUser } = useContext(AuthContext);
   const handleSignOut = async () => {
-    await signOut(auth);
+    try {
+      await signOut(auth);
+    } catch (e) {
+      console.log(e.message);
+    }
   };
   return (
     <div className="top-bar-home">
