@@ -5,14 +5,17 @@ import { AuthContext } from "../../context/AuthContext";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import { IsMobileContext } from "../../context/IsMobileContext";
 const ChatsUser = ({ search }) => {
   const { currentUser } = useContext(AuthContext);
   const { dispath } = useContext(ChatContext);
   const [chats, setChats] = useState(null);
+  const { isMobile } = useContext(IsMobileContext);
   const navigate = useNavigate();
+
   const selectHandler = (user) => {
     dispath({ type: "CHANGE_USER", payload: user });
-    navigate("/chat");
+    if (isMobile) navigate("/chat");
   };
   useEffect(() => {
     const getChats = () => {

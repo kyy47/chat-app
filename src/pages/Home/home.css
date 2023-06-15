@@ -1,4 +1,11 @@
-.home {
+.container-home {
+  display: flex;
+  width: 100%;
+  height: 600px;
+  gap: 10px;
+}
+.container-home .home {
+  flex: 1;
   width: 100%;
   min-height: 400px;
   display: flex;
@@ -7,4 +14,8 @@
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   padding: 24px;
+}
+
+.container-home .container-chat {
+  flex: 2;
 }

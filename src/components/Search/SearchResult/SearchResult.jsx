@@ -11,10 +11,12 @@ import {
 import { db } from "../../../firebase/firebase";
 import { ChatContext } from "../../../context/ChatContext";
 import { useNavigate } from "react-router-dom";
+import { IsMobileContext } from "../../../context/IsMobileContext";
 
 const SearchResult = ({ user }) => {
   const { currentUser } = useContext(AuthContext);
   const { dispath } = useContext(ChatContext);
+  const { isMobile } = useContext(IsMobileContext);
   const navigate = useNavigate();
   const handleSelect = async () => {
     const combinedId =
@@ -43,7 +45,7 @@ const SearchResult = ({ user }) => {
         });
       }
       dispath({ type: "CHANGE_USER", payload: user });
-      navigate("/chat");
+      if (isMobile) navigate("/chat");
     } catch (error) {
       console.log(error.message);
     }

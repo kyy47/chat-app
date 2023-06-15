@@ -7,6 +7,7 @@
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   padding: 24px;
+  max-width: 600px;
 }
 
 .register .title-register {
@@ -54,16 +55,16 @@
   filter: contrast(1.2);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
-.register .to-login{
+.register .to-login {
   margin-top: 1rem;
-  font-size: .75em;
+  font-size: 0.75em;
   text-align: center;
   color: var(--color-gray);
 }
-.register .to-login a{
+.register .to-login a {
   font-weight: 500;
   color: var(--color-green);
 }
-.register .to-login a:hover{
-    opacity: .8
+.register .to-login a:hover {
+  opacity: 0.8;
 }

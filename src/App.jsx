@@ -1,45 +1,32 @@
 import "./app.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AuthContextProvider from "./context/AuthContext";
-import { Login, Register, Chat, Home } from "../src/pages";
-import ProtectedRoute from "./protected/ProtectedRoute";
-import ChatContextProvider from "./context/ChatContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <ProtectedRoute>
-        <Home />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/chat",
-    element: (
-      <ProtectedRoute>
-        <Chat />,
-      </ProtectedRoute>
-    ),
-  },
-]);
+import { useContext } from "react";
+import { IsMobileContext } from "./context/IsMobileContext";
+import ProtectedRoute from "./protected/ProtectedRoute";
+import { Register, Login, Chat, Home } from "./pages";
+
 function App() {
+  const { isMobile } = useContext(IsMobileContext);
+
   return (
-    <AuthContextProvider>
-      <ChatContextProvider>
-        <div className="app">
-          <RouterProvider router={router} />
-        </div>
-      </ChatContextProvider>
-    </AuthContextProvider>
+    <div className="app">
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          {isMobile ? <Route path="/chat" element={<Chat />} /> : null}
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
