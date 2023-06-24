@@ -11,6 +11,7 @@ import { v4 as uuid } from "uuid";
 import { useContext, useState } from "react";
 import { db } from "../../firebase/firebase";
 import Error from "../Error/Error";
+
 const WriteChat = ({ chatInput, setChatInput, data }) => {
   const { currentUser } = useContext(AuthContext);
   const [error, setError] = useState(false);

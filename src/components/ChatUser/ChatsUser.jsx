@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { IsMobileContext } from "../../context/IsMobileContext";
 const ChatsUser = ({ search }) => {
   const { currentUser } = useContext(AuthContext);
-  const { dispath } = useContext(ChatContext);
+  const { data, dispath } = useContext(ChatContext);
   const [chats, setChats] = useState(null);
   const { isMobile } = useContext(IsMobileContext);
   const navigate = useNavigate();
@@ -41,7 +41,11 @@ const ChatsUser = ({ search }) => {
                   return (
                     <div
                       key={index}
-                      className="card-chats"
+                      className={`card-chats ${
+                        data.user.id === userInfo.id && !isMobile
+                          ? "now-focus"
+                          : null
+                      }`}
                       onClick={() => selectHandler(userInfo)}
                     >
                       <img

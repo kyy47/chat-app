@@ -31,32 +31,40 @@ const Chat = () => {
     scrollRef.current && scrollToLastMessage();
   }, [messages]);
 
-  return !isMobile && !data.user ? (
+  return (
     <div className="container">
-      <h2>Welcome To KyyChat</h2>
-    </div>
-  ) : (
-    <div className="chat">
-      <TopBarChat />
-      <div className="messages" ref={scrollRef}>
-        {messages.length
-          ? messages.map((message) => {
-              return (
-                <Message
-                  message={message}
-                  data={data}
-                  scrollRef={scrollRef}
-                  key={message.id}
-                />
-              );
-            })
-          : null}
+      <div className="chat">
+        {!isMobile && !data.user ? (
+          <div className="container">
+            <div className="welcome">
+              <h2>Welcome To KyyChat</h2>
+            </div>
+          </div>
+        ) : (
+          <>
+            <TopBarChat />
+            <div className="messages" ref={scrollRef}>
+              {messages.length
+                ? messages.map((message) => {
+                    return (
+                      <Message
+                        message={message}
+                        data={data}
+                        scrollRef={scrollRef}
+                        key={message.id}
+                      />
+                    );
+                  })
+                : null}
+            </div>
+            <WriteChat
+              chatInput={chatInput}
+              setChatInput={setChatInput}
+              data={data}
+            />
+          </>
+        )}
       </div>
-      <WriteChat
-        chatInput={chatInput}
-        setChatInput={setChatInput}
-        data={data}
-      />
     </div>
   );
 };

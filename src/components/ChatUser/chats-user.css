@@ -22,6 +22,9 @@
 .chats-user .chats .card-chats:hover {
   background-color: #eee9e9;
 }
+.chats-user .chats .card-chats.now-focus {
+  background-color: #eee9e9;
+}
 
 .chats-user .chats .card-chats .img-profile {
   width: 35px;

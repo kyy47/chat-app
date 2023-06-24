@@ -19,6 +19,7 @@
 .chat .form .write-send button {
   cursor: pointer;
   flex: 1;
+  max-width: 125px;
   padding: 8px 15px;
   background-color: var(--btn-primary);
 }
