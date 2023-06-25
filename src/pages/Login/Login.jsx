@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Input } from "../../utils";
 const Login = () => {
   const { currentUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
@@ -25,24 +26,31 @@ const Login = () => {
   return (
     <div className="container">
       <div className="login">
-        <h3 className="title-login">Login</h3>
+        <div className="title-login">
+          <h3>🔰 kichat</h3>
+          <p>Minimal Chat App</p>
+        </div>
         <form onSubmit={handleLogin} className="form-login">
-          <input
-            className="input-form"
-            type="email"
-            placeholder="email"
-            required
-            value={email}
-            onChange={({ target }) => setEmail(target.value)}
-          />
-          <input
-            className="input-form"
-            type="password"
-            placeholder="password"
-            required
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
-          />
+          <div className="input-form">
+            <label htmlFor="email">Your email address</label>
+            <Input
+              name="email"
+              placeholder="xxx@gmail.com"
+              type="email"
+              value={email}
+              setValue={setEmail}
+            />
+          </div>
+          <div className="input-form">
+            <label htmlFor="password">Your password</label>
+            <Input
+              name="password"
+              placeholder="#Xxx47"
+              type="password"
+              value={password}
+              setValue={setPassword}
+            />
+          </div>
           {error ? <Error message={error} /> : null}
           <button type="submit" className="btn-login">
             login

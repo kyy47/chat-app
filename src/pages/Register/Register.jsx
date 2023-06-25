@@ -8,6 +8,8 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Error } from "../../components";
+import Input from "../../utils/Input/Input";
+
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -62,32 +64,41 @@ const Register = () => {
   return (
     <div className="container">
       <div className="register">
-        <h3 className="title-register">Register</h3>
+        <div className="title-register">
+          <h3>🔰 kichat</h3>
+          <p>Minimal Chat App</p>
+        </div>
         <form onSubmit={handleRegister} className="form-register">
-          <input
-            className="input-form"
-            type="text"
-            placeholder="username"
-            required
-            value={username}
-            onChange={({ target }) => setUsername(target.value)}
-          />
-          <input
-            className="input-form"
-            type="email"
-            placeholder="email"
-            required
-            value={email}
-            onChange={({ target }) => setEmail(target.value)}
-          />
-          <input
-            className="input-form"
-            type="password"
-            placeholder="password"
-            required
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
-          />
+          <div className="input-form">
+            <label htmlFor="username">Your username</label>
+            <Input
+              name="username"
+              type="text"
+              placeholder="xxx47"
+              value={username}
+              setValue={setUsername}
+            />
+          </div>
+          <div className="input-form">
+            <label htmlFor="email">Your email address</label>
+            <Input
+              name="email"
+              type="email"
+              placeholder="xxx@gmail.com"
+              value={email}
+              setValue={setEmail}
+            />
+          </div>
+          <div className="input-form">
+            <label htmlFor="password">Your password</label>
+            <Input
+              name="password"
+              type="password"
+              placeholder="#Xxx47"
+              value={password}
+              setValue={setPassword}
+            />
+          </div>
           <input
             type="file"
             id="file-input"

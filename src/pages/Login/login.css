@@ -1,53 +1,45 @@
 .login {
   width: 100%;
-  min-height: 400px;
+  max-width: 425px;
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   background: var(--color-white);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   padding: 24px;
-  max-width: 475px;
 }
 
-.login .title-login {
+.login .title-login h3 {
+  margin-top: 4rem;
   font-size: 1.5rem;
   font-weight: 600;
+  text-align: center;
+}
+.login .title-login p {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
 }
 
 .login .form-login {
-  margin-top: 1rem;
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.login .form-login .input-form {
-  padding: 10px 20px;
+.login .form-login .input-form label {
+  font-weight: 500;
   font-size: 0.9rem;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  background-color: #fdfdfd;
-}
-
-.login .form-login #file-input {
-  display: none;
-}
-.login .form-login .label-file-input {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.login .form-login .info-file {
-  font-size: 0.85rem;
 }
 
 .login .form-login .btn-login {
   padding: 7px 20px;
   border-radius: 5px;
   cursor: pointer;
-  background-color: var(--btn-primary);
+  background-color: var(--btn-secondary);
   font-size: 1.1rem;
 }
 
@@ -58,14 +50,15 @@
 
 .login .to-register {
   margin-top: 1rem;
-  font-size: 0.75em;
+  font-size: 0.8em;
   text-align: center;
   color: var(--color-gray);
 }
 .login .to-register a {
   font-weight: 500;
-  color: var(--color-green);
+  color: var(--color-purple);
+  opacity: 0.8;
 }
 .login .to-register a:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
